@@ -38,6 +38,43 @@ class Player:
     클래스 메소드 => 인스턴스를 생성하지 않고 클래스에 직접적으로 접근함
     """
 
+    def gain_exp(self, amount):
+        self.exp += amount
+        if self.exp >= self.max_exp:
+            left_amount = self.exp - self.max_exp
+            self.exp = 0
+            self.level_up(left_amount)
+
+    def level_up(self, amount):
+        self.level += 1
+        self.attack += 5
+        self.max_hp += 10
+        self.max_mp += 10
+        self.hp += self.max_hp
+        self.mp += self.max_mp
+        self.exp += amount
+        self.max_exp = int(self.max_exp * 1.5)
+        print(f"레벨 업! {self.level}레벨이 되었습니다!\n공격력 +5\n최대 HP +10\n최대 MP +10")
+
+    def apply_item(self, item):
+        self.attack += item["attack"]
+        self.max_hp += item["hp"]
+        self.max_mp += item["mp"]
+        self.cri_luk += item["cri_luk"]
+        print(f"{item["name"]}>\n공격력 +{item["attack"]} => {self.attack}\n최대 HP +{item["hp"]} => {self.max_hp}\n최대 MP +{item["mp"]} => {self.max_mp}\n치명타 확률 +{item["cri_luk"]}% => {self.cri_luk}%")
+
+    def mp_recovery(self, mp):
+        self.mp = min(self.max_mp, self.mp + mp) #인자들 중 작은 것을 고름
+        print(f"현재 MP: {self.mp}")
+
+    def player_died(self):
+        for item in self.items:
+            self.attack -= item["attack"]
+            self.max_hp -= item["hp"]
+            self.max_mp -= item["mp"]
+            self.cri_luk -= item["cri_luk"]
+        self.items = []
+
 
 class Monster:
     def __init__(self, name, max_hp, gold_reward, attack, exp_reward):
