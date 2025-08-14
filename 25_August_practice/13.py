@@ -26,28 +26,32 @@ print("====== 블랙잭 =======")
 money = 500
 
 def betting():
+    global money
+    bet = int(input(f"보유 금액: {money}\n얼마를 베팅하시겠습니까 :"))
     while True:
-        mymoney = money
-        bet = int(input("보유 금액: 얼마를 베팅하시겠습니까 :"))
-        if mymoney >= bet:
-            mymoney -= bet
-            print(f"{bet}불 베팅하셨습니다. {mymoney}불 남았습니다.")
+        if money >= bet:
+            money -= bet
+            print(f"{bet}불 베팅하셨습니다. {money}불 남았습니다.")
             first_game()
-            break
+            return money
         else:
-            print(f"잔액이 부족합니다. 보유금액: {mymoney}불")
-            continue
+            print(f"잔액이 부족합니다. 보유금액: {money}불")
+            if money == 0:
+                print("돈을 모두 잃었습니다\n게임을 종료합니다")
+                break
+            else:
+                continue
 
 cards = [
         "클로버_A", "클로버_2", "클로버_3", "클로버_4", "클로버_5", "클로버_6", "클로버_7", "클로버_8", "클로버_9", "클로버10", "클로버_J", "클로버_Q", "클로버_K",
         "다이아_A", "다이아_2", "다이아_3", "다이아_4", "다이아_5", "다이아_6", "다이아_7", "다이아_8", "다이아_9", "다이아10", "다이아_J", "다이아_Q", "다이아_K",
-        " 하트_A", " 하트_2", " 하트_3", " 하트_4", " 하트_5", " 하트_6", " 하트_7", " 하트_8", " 하트_9", " 하트10", " 하트_J", " 하트_Q", " 하트_K",
+        " 하트_A", " 하트_2", " 하트_3", " 하트_4", " 하트_5", " 하트_6", " 하트_7", " 하트_8", " 하트_9", "하트10", " 하트_J", " 하트_Q", " 하트_K",
         "스페이드A", "스페이드2", "스페이드3", "스페이드4", "스페이드5", "스페이드6", "스페이드7", "스페이드8", "스페이드9", "스페이드10", "스페이드J", "스페이드Q", "스페이드K"
     ]
 
+#카드 값 계산
 def card_value(card_name, is_player=True):
-    rank = card_name.split("_")[1]  # 예: "A", "10", "K"
-
+    rank = card_name[4]  # 예: "A", "10", "K"
     if rank == "A":
         if is_player:
             while True:
@@ -65,10 +69,11 @@ def card_value(card_name, is_player=True):
 
 def result(score, is_player=True):
     global money
+    global bet
     if score == 21:
         if is_player == True:
             print("Black Jack! you win!")
-            money *= 1.5
+            money += (bet * 1.5)
             print(f"현재 금액 : {money}")
         else:
             print("Black Jack for dealer, you lose")
@@ -77,33 +82,53 @@ def result(score, is_player=True):
     elif score > 21:
         if is_player == False:
             print("dealer's card is over 21! you win")
-            money += 1.2
+            money += (bet * 1.2)
             print(f"보유금액 : {money}")
+            game_over()
         else:
             time.sleep(2)
             print("Bust!!\nYour card is over 21! you lose")
             print(f"보유금액 : {money}")
+            game_over()
     else:
-        if is_player == False:
-            if score >= 17:
-                return com_score
-            else:
-                com_third = str(random.choice(deck))
-                deck.remove(com_third)
-                print(f"컴퓨터 세번째 카드: {com_third}")
+        pass
 
-                com_score = score + card_value(com_third, False)
-                result(com_score)
-                return com_score
-        else:
-            first_game_next(score, True)
+def stand(score1, score2):
+    global money
+    global bet
+    print(f"Player's score :{score1}\nDealer's score :{score2}")
+    if score1 > score2:
+        print("You win!")
+        time.sleep(1)
+        print(f"보유 금액 : {money} => {money + (bet * 1.2)}")
+        game_over()
+    else:
+        print("You lose")
+        time.sleep(1)
+        print(f"보유금액 : {money}")
+        game_over()
 
 
 
 
 def game_over():
     print("게임 종료")
-    sys.exit()
+    re_game()
+
+
+def re_game():
+    while True:
+        choice = input("다음 게임을 시작하시겠습니까?\n Y/N :")
+        if choice == "y":
+            print("곧 게임이 시작됩니다")
+            time.sleep(2)
+            betting()
+        elif choice == "n":
+            print("THE END")
+            sys.exit()
+        else:
+            print("잘못된 입력입니다")
+            continue
 
 
 def first_game():
@@ -143,11 +168,9 @@ def first_game():
     result(my_score)
     result(com_score,False)
 
-def first_game_next(score):
     while True:
-        global deck
         choice = input("Hit or Stand?!\n\n1. hit \n2. Stand \n선택 : ")
-        if choice == 1:
+        if choice == "1":
             print("세번째 카드 베팅중...")
             time.sleep(2)
 
@@ -158,24 +181,56 @@ def first_game_next(score):
             time.sleep(1)
             print("카드 베팅이 완료되었습니다.")
 
-            my_score = score + card_value(my_third)
+            my_score += card_value(my_third)
             result(my_score)
-        elif choice == 2:
+        elif choice == "2":
             print("카드값을 계산합니다...")
             time.sleep(2)
-            pass
-
+            stand(my_score, com_score)
         else:
             print("다시 숫자를 입력해주세요")
             continue
 
-betting()
+        # if is_player == False:
+        #     if score >= 17:
+        #         com_score = score
+        #         return com_score
+        #     else:
+        #         com_third = str(random.choice(deck))
+        #         deck.remove(com_third)
+        #         print(f"컴퓨터 세번째 카드: {com_third}")
+        #
+        #         com_score = score + card_value(com_third, False)
+        #         result(com_score)
+        #         return com_score
+        # else:
+        #     pass
 
-# #각종 문자열 함수
-# a = "Life is too short, You need Python"
-# print(len(a)) #해당 문자열의 길이
-# print(a.count("t")) #특정 문자가 몇개 있는지
-# print(a.index("t")) #특정 문자의 인덱스 찾기
-# print(a.index("t",10, 18))
-# #특정문자, 시작 인덱스, 끝인덱스로 구간을 설정
-# print(a.find("t"))  #특정문자 시작 끝 구간 설정 가능
+
+# def first_game_next(score):
+#     while True:
+#         global deck
+#         choice = input("Hit or Stand?!\n\n1. hit \n2. Stand \n선택 : ")
+#         if choice == 1:
+#             print("세번째 카드 베팅중...")
+#             time.sleep(2)
+#
+#             my_third = str(random.choice(deck))
+#             deck.remove(my_third)
+#             print(f"내 세번째 카드: {my_third}")
+#
+#             time.sleep(1)
+#             print("카드 베팅이 완료되었습니다.")
+#
+#             my_score = score + card_value(my_third)
+#             result(my_score)
+#         elif choice == 2:
+#             print("카드값을 계산합니다...")
+#             time.sleep(2)
+#             pass
+#
+#         else:
+#             print("다시 숫자를 입력해주세요")
+#             continue
+
+betting()
