@@ -85,9 +85,12 @@ face_pic = ["|      (' v ')       |",
             "|      (' n ')       |",
             "|      (` д ´)       |",
             ]
+rsp_pic = ["|     /     ✊\uFE0E|      |",
+           "|     /     ✋\uFE0E|      |"]
 
 def MIRROR(choice, face):
-    print(mirror_pic[0:2])
+    print(mirror_pic[0])
+    print(mirror_pic[1])
     #거울 속 표정
     if face == "좋음":
         print(face_pic[0])
@@ -101,16 +104,12 @@ def MIRROR(choice, face):
         print(mirror_pic[2])
     print(mirror_pic[3])
     #거울의 손동작
-    if choice == "1"
-
-
-
-
-
-
-for m in mirror_pic[1:4]:
-    print(m)
-
-MIRROR()
+    if choice == "r":
+        print(rsp_pic[0])
+    elif choice == "p":
+        print(rsp_pic[1])
+    else:
+        print(mirror_pic[4])
+    print(mirror_pic[5])
 
 

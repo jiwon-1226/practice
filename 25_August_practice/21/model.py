@@ -6,6 +6,7 @@ HOW_ENTER = ["\n당신은 학교에서 떠도는 괴담에 관심이 많다.\n�
 
 P_RSP = ["✊\uFE0E", "✌️\uFE0E", "✋\uFE0E"]
 E_RSP = ["✊\uFE0E", "✋\uFE0E"]
+W_L = ["win", "equal", "win", "equal", "win", "win", "lose"]
 
 
 
