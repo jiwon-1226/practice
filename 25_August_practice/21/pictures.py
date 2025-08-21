@@ -18,6 +18,16 @@ REPAIR = """
 |＿＿＿＿＿＿＿＿＿＿＿＿|
 """
 
+GLASS = ["==========================",
+         "||          ||          ||",
+         "||          ||          ||",
+         "||          ||q         ||",
+         "||          ||          ||",
+         "||          ||          ||",
+         "=========================="
+     ]
+
+
 
 def ELEVATOR(instrution, floor):
     if instrution == "close":
@@ -88,6 +98,7 @@ face_pic = ["|      (' v ')       |",
 rsp_pic = ["|     /     ✊\uFE0E|      |",
            "|     /     ✋\uFE0E|      |"]
 
+
 def MIRROR(choice, face):
     print(mirror_pic[0])
     print(mirror_pic[1])
@@ -104,9 +115,9 @@ def MIRROR(choice, face):
         print(mirror_pic[2])
     print(mirror_pic[3])
     #거울의 손동작
-    if choice == "r":
+    if choice == "1":
         print(rsp_pic[0])
-    elif choice == "p":
+    elif choice == "3":
         print(rsp_pic[1])
     else:
         print(mirror_pic[4])

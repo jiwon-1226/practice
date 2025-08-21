@@ -2,7 +2,7 @@ import random
 import os
 import time
 
-from model import HOW_ENTER, BUTTON, PRESS_BUTTON, VOICE, GUIDELINE
+from model import HOW_ENTER, BUTTON, PRESS_BUTTON, VOICE, GUIDELINE, top_floor_list
 from in_ELE import show_title, my_turn
 from pictures import REPAIR, ELEVATOR
 
@@ -17,12 +17,16 @@ def enter_gs():
     print(e)
     time.sleep(1)
     e_choice = input("\n1. 한다 \n2. 안한다\n선택:")
+    top_floor = random.choice(top_floor_list)
     if e_choice == "1":
         time.sleep(1)
-        print("당신은 그 괴담이 잘 나타난다고 소문이 난 아파트를 찾아간다.\n"
+        print("당신은 그 괴담이 잘 나타난다고 소문이 난 아파트를 찾아간다.\n")
+        time.sleep(2)
+        print(ELEVATOR("close_repair", 2),
               "엘리베이터가 한대 뿐인 건물에서 주로 발생하며 \n"
-              "특히 잔고장이 잦거나 수리 중이라는 종이가 붙은 엘리베이터를 타야 괴담에 진입할 확률이 높다고 한다.\n",
-              REPAIR[0],
+              "특히 잔고장이 잦거나 수리 중이라는 종이가 붙은 엘리베이터를 타야 괴담에 진입할 확률이 높다고 한다.\n")
+        time.sleep(1)
+        print(REPAIR[0],
               "역시나 엘리베이터에 수리 중이라는 종이가 붙어있다.\n")
         time.sleep(1)
         print("당신은 버튼을 누르고 탑승한다.")
@@ -39,12 +43,12 @@ def enter_gs():
 
         print("\n엘리베이터에 탑승한 당신은 아무버튼도 누르지 않았지만 엘리베이터가 움직인다.")
         time.sleep(1)
-        show_title()
+        show_title(top_floor)
         time.sleep(2)
         print("당신은 텍스트 파일에서 읽었던 첫번째 문장을 다시 꺼내어 본다.")
         print(GUIDELINE["f"])
         print("\n당신은 기대하며 거울 속의 자신을 바라본다.\n")
-        my_turn(15)
+        my_turn(top_floor)
 
     elif e_choice == "2":
         time.sleep(1)
@@ -61,7 +65,7 @@ def enter_gs():
         print("\033[31m당신이 엘리베이터 버튼을 누른적이 있던가?\033[0m\n")
         time.sleep(2)
 
-        show_title()
+        show_title(top_floor)
 
         time.sleep(2)
         print("당신은 텍스트 파일에서 읽었던 첫번째 문장을 다시 꺼내어 본다.")
@@ -71,7 +75,7 @@ def enter_gs():
         time.sleep(1)
         print("\n당신의 등에서 식은땀이 흐른다.")
         print("당신은 텍스트 파일을 연 휴대폰을 꾹 쥐고 지시사항을 따른다.")
-        my_turn(12)
+        my_turn(top_floor)
 
 
     else:
@@ -94,12 +98,7 @@ def enter_gs():
         time.sleep(1)
         ELEVATOR("open", 1)
 
-
-
-
-
-
-
+        my_turn(top_floor)
 
 
 
