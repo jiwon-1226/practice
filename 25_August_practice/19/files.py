@@ -1,6 +1,5 @@
 
 
-
 HANGMANPICS = ['''
   +---+
   |   |
@@ -46,10 +45,12 @@ HANGMANPICS = ['''
 =========''', '''
   +---+
   |   |
-  O   |
+ (x)  |
  /|\  |
  / \  |
 ――― |
 =========''']
 
 HANGMANGIVEN = ["오른 다리", "왼 다리", "몸통", "오른 팔", "왼팔", "머리"]
+
+words = ["consequential", "resume", "conduct", "qualification", "essential"]

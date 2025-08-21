@@ -4,11 +4,11 @@
 import random
 import time
 import os
-from game import HANGMANPICS, HANGMANGIVEN
+from files import HANGMANGIVEN, HANGMANPICS, words
+# from hang_game import my_game
 
 words = ["consequential", "resume", "conduct", "qualification", "essential"]
 players = ["은하제", "김솔음", "박민성", "서팔광", "엄석용", "박남살", "태백홍"]
-
 
 
 print("===========로딩중==============")
@@ -89,38 +89,30 @@ time.sleep(3)
 #     contamination = 0
 
 
-
 blank_answer = []
 answer = []
 player_guess_list = []
 
-def game_over():
-    print("재밌는 시간이었습니다. 다음에 또 봅시다 선생님")
-    os._exit(os.EX_OK)
-
-
-
-
-def my_game(is_player=True):
+def my_game(hangman, is_player=True):
+    over = 0
     time.sleep(2)
     print("\n======단어를 선택하고 있습니다=======\n")
     time.sleep(3)
     word = random.choice(words)
     blank_count = len(word)
     print(f"{blank_count}개의 단어입니다")
-    print("\033[31m\033[1m_ \033[0m" * blank_count)
+
     for j in range(0, len(word)):
         blank_answer.append("_")
     for i in word:
         answer.append(i)
     print(answer)
-    over = 0
 
 
     while over != 1:
         hangman_life = 7
-        print(HANGMANPICS[7 - hangman_life])
         while True:
+            print(HANGMANPICS[7 - hangman_life])
             if len(player_guess_list) == 0:
                 pass
             else:
@@ -160,18 +152,26 @@ def my_game(is_player=True):
 
             if answer == blank_answer:
                 print(f"맞췄습니다! 정답은 {word}!")
-                game_over()
+                os._exit(os.EX_OK)
+
             elif hangman_life == 0:
                 print(HANGMANPICS[6])
                 print(f"정답은 {word}! 아쉽지만 {hangman}은 사망하였습니다. \n{hangman}의 시체는 괴담에 귀속됩니다.")
-                game_over()
+                os._exit(os.EX_OK)
 
+
+
+
+
+
+def game_over():
+    print("재밌는 시간이었습니다. 다음에 또 봅시다 선생님")
+    os._exit(os.EX_OK)
 
 
 hangman = random.choice(players)
 print(f"행맨은 \033[34m{hangman}\033[0m입니다!")
 players.remove(hangman)
-
 
 
 if hangman == name:
@@ -190,10 +190,10 @@ if hangman == name:
     print("(괴담이 당신을 비웃습니다)")
     time.sleep(1.5)
     print("\033[91m\033[3m부디 행운을 빕니다, 행맨.\033[0m")
-    my_game(False)
+    my_game(hangman, False)
 else:
     time.sleep(0.5)
-    print(f"(\033[34m{hangman}\033[0m의 목에 정취선이 그어집니다)")
+    print(f"(\033[34m{hangman}\033[0m의 목에 절취선이 그어집니다)")
     time.sleep(1)
     print(f"\033[34m{hangman}\033[0m : 컥! 커억...!")
     print()
@@ -205,7 +205,7 @@ else:
         print("(당신의 순종적인 행동에 괴담이 좋아합니다)")
         time.sleep(1.5)
         print("다들 착한 선생님입니다.")
-        my_game(True)
+        my_game(hangman, True)
     else:
         print("유치원에 정적이 흐릅니다")
         time.sleep(3)
