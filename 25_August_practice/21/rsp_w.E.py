@@ -25,11 +25,11 @@ def enter_gs():
         print(ELEVATOR("close_repair", 2),
               "엘리베이터가 한대 뿐인 건물에서 주로 발생하며 \n"
               "특히 잔고장이 잦거나 수리 중이라는 종이가 붙은 엘리베이터를 타야 괴담에 진입할 확률이 높다고 한다.\n")
-        time.sleep(1)
+        time.sleep(3)
         print(REPAIR[0],
               "역시나 엘리베이터에 수리 중이라는 종이가 붙어있다.\n")
-        time.sleep(1)
-        print("당신은 버튼을 누르고 탑승한다.")
+        time.sleep(2)
+        print("당신은 버튼을 누르고 탑승한다.\n")
         BUTTON("^")
         time.sleep(1.5)
         print(end="\r")
@@ -99,6 +99,10 @@ def enter_gs():
         ELEVATOR("open", 1)
 
         my_turn(top_floor)
+
+        print("여기로 옴!")
+
+
 
 
 

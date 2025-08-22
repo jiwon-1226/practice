@@ -2,24 +2,26 @@ import random
 import os
 import time
 
-from fontTools.misc.cython import returns
 
-from model import TITle, VOICE, E_RSP, P_RSP, GUIDELINE, ALLBUTTON, fast_p_win, slow_p_lose
-from pictures import MIRROR, GLASS
+from model import TITle, VOICE, GUIDELINE, ALLBUTTON, fast_p_win, slow_p_lose, ANSWER
+from pictures import MIRROR, ELEVATOR
+from end import end_w3
 
 
 
 def show_title(top_floor):
-    print("괴담에 성공적으로 진입하였다.")
-    time.sleep(1.5)
+    print("괴담에 성공적으로 진입하였다.\n\n\n\n\n\n")
+    time.sleep(3)
     print("\033[1mQterw-D-718", end="")
     time.sleep(2)
-    print("\033[91m [거울을 보지 마세요]\033[0m\n")
+    print("\033[91m [거울을 보지 마세요]\033[0m")
     time.sleep(3)
+    print("\n")
     for i in TITle:
         print(i)
         time.sleep(0.5)
-    time.sleep(2)
+    print("\n\n\n\n\n\n")
+    time.sleep(7)
 
     VOICE("go_up")
     time.sleep(1)
@@ -148,20 +150,162 @@ def my_turn(top_floor):
                 break
 
 
+def Reply_Q(space1, space2, Q, Q_count):
+
+    print("\n\n||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          f"||\033[47m    \033[1m\033[30m{Q[:20]}", end="")
+    print(" "*space1, "\033[0m||")
+    print(f"||\033[47m    \033[1m\033[30m{Q[20:]}", end="")
+    print(" "*space2, "\033[0m||")
+    print("||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n")
+
+
+
+def GLASS():
+    print("=====================================\n"
+              "||\033[47m                \033[0m||\033[47m               \033[0m||\n"
+              "||\033[47m                \033[0m||\033[47m               \033[0m||\n"
+              "||\033[47m                \033[0m||\033[47m               \033[0m||\n"
+              "||\033[47m                \033[0m||\033[47m               \033[0m||\n"
+              "||\033[47m                \033[0m|| )\033[47m             \033[0m||\n"
+              "||\033[47m                \033[0m||_|\033[47m             \033[0m||\n"
+              "||\033[47m                \033[0m||\033[47m               \033[0m||\n"
+              "||\033[47m                \033[0m||\033[47m               \033[0m||\n"
+              "=====================================")
+
+    time.sleep(2)
+    print("\n\n\n먼지가 쌓인 더러운 창문이 보인다. 손가락으로 글을 쓰면 써질 것 같다. \n\n\n")
+    time.sleep(2)
+    print("=================================================\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m|| )\033[47m                   \033[0m||\n"
+          "||\033[47m                      \033[0m||_|\033[47m                   \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "||\033[47m                      \033[0m||\033[47m                     \033[0m||\n"
+          "=================================================")
+
+    time.sleep(2)
+
+    print("\n\n||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m|| )\033[47m                \033[0m\n"
+          "||\033[47m                          \033[0m||_|\033[47m                \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          "||\033[47m                          \033[0m||\033[47m                  \033[0m\n"
+          )
+
+    time.sleep(2)
+
+    print("\n\n||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n"
+          "||\033[47m                                    \033[0m||\n")
+
+    while True:
+
+        Q = input("질문:")
+        Q_count = int(len(Q))
+
+
+        if Q_count <= 20:
+            space1 = 25 - Q_count
+            space2 = 31
+            Reply_Q(space1, space2, Q, Q_count)
+        elif 20 < Q_count <= 40:
+            space1 = 11
+            space2 = 25 - (Q_count-20)
+            Reply_Q(space1, space2, Q, Q_count)
+        else:
+            Q = "40자 이내로 쓰시오."
+            print("\n\n||\033[47m                                    \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  f"||\033[47m    \033[1m\033[30m{Q}               \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  "||\033[47m                                    \033[0m||\n"
+                  )
+            continue
+
+        A = random.choice(ANSWER)
+        A_count = int(len(A))
+
+        print("\n.....")
+        time.sleep(5)
+
+        if A_count <= 20:
+            space1 = 32 - A_count
+            space2 = 31
+            Reply_Q(space1, space2, A, A_count)
+
+        time.sleep(2)
+        to_do = input("1. 답변이 마음에 든다. \n2. 답변이 마음에 들지 않는다. \n선택 :")
+        if to_do == "1":
+            print("\n당신은 답변을 마음에 들어하며 유리창에서 멀어진다.")
+            time.sleep(2)
+            end_w3()
+            break
+        elif to_do == "2":
+            print("\n당신은 당신의 질문에 대한 답변이 마음에 들지 않는다.\n")
+            time.sleep(2)
+            print("\033[3m\033[91m그런데 어쩌라고?", end="")
+            time.sleep(2)
+            print(end="\r")
+            print("답변이 마음에 안들면 질문을 잘했어야지\033[0m", end="")
+            time.sleep(2)
+            print(end="\r")
+            print("아쉽지만 질문을 할 수 있는 기회는 단 한번이기에 \n 더 이상 질문할 수 없다:)")
+            time.sleep(2)
+            print("당신은 체념하며 유리창에서 멀어진다.")
+            end_w3()
+            break
+
+        else:
+            print("당신은 터무니없는 답변에 분노한다")
+            angry = input("1. 옆에 있는 돌로 유리창을 깬다. \n2. 이름님을 믿냐고 묻는다. \n3. 화가나지만 어떻게 할 수 없으므로 포기한다.\n선택:")
+            if angry == "3":
+                time.sleep(2)
+                print("당신은 체념하며 유리창에서 멀어진다.")
+                end_w3()
+                break
+            elif angry == "1":
+                time.sleep(2)
+                pass
+
 def Answer_Q():
     print("\n ......")
     time.sleep(3)
     print("\n찾았다!")
     time.sleep(1)
-    GLASS("just")
-
-
-
-
-my_turn(4)
-
-
-
+    GLASS()
 
 
 
