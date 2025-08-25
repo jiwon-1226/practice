@@ -36,16 +36,21 @@ def end_w3():
         print("\n터벅터벅\n")
         time.sleep(2)
         print("\n터벅터벅\n")
-        print("1층에 도착했다.")
-
+        print("1층에 도착했다.\n")
+        time.sleep(3)
+        print("당신은 무심코 엘리베이터 쪽을 쳐다본다.\n")
+        time.sleep(2)
+        print("   \033[92m\033[40m  [100F]  \033[0m", end="")
         time.sleep(3)
 
-        for i in range(100, 4, -1):
-            print(f"   \033[92m\033[40m  [{i}F]  \033[0m", end="")
-            time.sleep(0.3)
+        for i in range(100, 3, -1):
             print(end="\r")
+            print(f"   \033[92m\033[40m  [{i}F]  \033[0m", end="")
+            time.sleep(0.05)
 
-        print("당신은 당장 그 건물을 도망쳐 니온다.")
+        print(end="\r")
+        print("\n\n당신은 당장 그 건물을 도망쳐 니온다.\n\n")
+        time.sleep(2)
         print("\033[90m\033[3m킥킥...\033[0m", end="")
         time.sleep(2)
         print(end="\r")
@@ -67,4 +72,3 @@ def do_not_direction():
     print("행운을 빈다")
 
 
-end_w3()

@@ -3,7 +3,7 @@ import os
 import time
 
 
-from model import TITle, VOICE, GUIDELINE, ALLBUTTON, fast_p_win, slow_p_lose, ANSWER
+from model import TITle, VOICE, GUIDELINE, ALLBUTTON, ffast_p_win, fslow_p_lose, sfast_p_win, sslow_p_lose, ANSWER, gA
 from pictures import MIRROR, ELEVATOR
 from end import end_w3
 
@@ -35,7 +35,7 @@ def show_title(top_floor):
 
 
 
-def E_choice(p_choice, input_time):
+def E_choice(p_choice, input_time, fast_p_win, slow_p_lose):
     #승률 조작
     if input_time < 1.5:
         r_choice = random.choice(fast_p_win)
@@ -106,7 +106,7 @@ def my_turn(top_floor):
             end = time.time()
             input_time = end - start
 
-            result = E_choice(p_choice, input_time)
+            result = E_choice(p_choice, input_time, ffast_p_win, fslow_p_lose)
 
             if result == 1:
                 win_count += 1
@@ -145,12 +145,120 @@ def my_turn(top_floor):
                 print(f"당신은 {top_floor}에 내려서 유리창을 찾는다.")
 
                 Answer_Q()
+                return
 
             else:
-                break
+                print("당신은 모든 가위바위보를 졌다.")
+                other_turn(top_floor)
+                return
+
+def other_turn(top_floor):
+    print("\n")
+    print(GUIDELINE[13])
+    print("\n")
+    time.sleep(5)
+    print(f"{top_floor}층에 도달할 때까지 한 번도 이기지 못한 당신을 거울 속에 당신이 활짝 웃으며 바라본다.")
+    time.sleep(2)
+    print(MIRROR("", "좋음"))
+    time.sleep(2)
+    print("\n모든 버튼의 불이 다 꺼졌다.\n\n")
+    time.sleep(2)
+    print("|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n"
+          "|\033[40m                                    \033[0m|\n")
+    time.sleep(2)
+    print("거울 속의 엘리베이터 문은 활짝 열려있다.")
+    time.sleep(2)
+    print("    \033[92m\033[40m  [1930819F]  \033[0m")
+    print("\n")
+    print(GUIDELINE[132])
+    print("\n")
+    time.sleep(5)
+    print("당신은 6번 지시사항으로 넘어간다.")
+    time.sleep(2)
+    print(GUIDELINE[6])
+    time.sleep(3)
+    print("\n")
+    print(GUIDELINE[62])
+    time.sleep(5)
+
+    lose_count = 0
+    win_count = 0
+
+    time.sleep(2)
+    game_count = 1
+
+    while True:
+        print("    \033[92m\033[40m  [1930819F]  \033[0m")
+        MIRROR("", "웃음")
+        print(f"{game_count}번째")
+        time.sleep(2)
+        start = time.time()
+        p_choice = input("1. 바위  2. 가위  3. 보 \n 선택:")
+        end = time.time()
+        input_time = end - start
+
+        result = E_choice(p_choice, input_time, sfast_p_win, sslow_p_lose)
+
+        if result == 1:
+            win_count += 1
+            print("드디어 당신이 이겼습니다")
+            MIRROR("", "매우나쁨")
+
+        elif result == -1:
+            lose_count += 1
+            MIRROR("", "매우좋음")
+            time.sleep(2)
+            print("\n'거울 속의 존재'가 당신의 패배를 기뻐합니다.\n")
+            print(GUIDELINE[63])
+            print("'거울 속의 존재'는 손가락을 움직여 거울에 자국을 남긴다")
+            print("\n\n|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  f"|\033[47m\033[3m     {gA[lose_count -1]}                     \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n")
+            time.sleep(3)
+            Q = input("답:")
+            Q_count = int(len(Q))
+            space1 = 25 - Q_count
+            time.sleep(3)
+            print("\n\n|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  f"|\033[47m\033[3m     {gA[lose_count -1]}                     \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  f"|\033[47m    \033[1m\033[30m{Q[:20]}", end="")
+            print(" " * space1, "\033[0m|")
+            print("|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n"
+                  "|\033[47m                                    \033[0m|\n")
 
 
-def Reply_Q(space1, space2, Q, Q_count):
+            if lose_count == 3:
+                print("")
+
+
+        else:
+            win_count += 0
+        print(f"이김 : {win_count}, 짐 : {lose_count}")
+        game_count += 1
+
+other_turn(7)
+
+
+
+def Reply_Q(space1, space2, Q):
 
     print("\n\n||\033[47m                                    \033[0m||\n"
           "||\033[47m                                    \033[0m||\n"
@@ -235,11 +343,11 @@ def GLASS():
         if Q_count <= 20:
             space1 = 25 - Q_count
             space2 = 31
-            Reply_Q(space1, space2, Q, Q_count)
+            Reply_Q(space1, space2, Q)
         elif 20 < Q_count <= 40:
             space1 = 11
             space2 = 25 - (Q_count-20)
-            Reply_Q(space1, space2, Q, Q_count)
+            Reply_Q(space1, space2, Q)
         else:
             Q = "40자 이내로 쓰시오."
             print("\n\n||\033[47m                                    \033[0m||\n"
@@ -264,7 +372,7 @@ def GLASS():
         if A_count <= 20:
             space1 = 32 - A_count
             space2 = 31
-            Reply_Q(space1, space2, A, A_count)
+            Reply_Q(space1, space2, A)
 
         time.sleep(2)
         to_do = input("1. 답변이 마음에 든다. \n2. 답변이 마음에 들지 않는다. \n선택 :")
@@ -299,6 +407,7 @@ def GLASS():
             elif angry == "1":
                 time.sleep(2)
                 pass
+    return
 
 def Answer_Q():
     print("\n ......")
@@ -306,6 +415,7 @@ def Answer_Q():
     print("\n찾았다!")
     time.sleep(1)
     GLASS()
+    return
 
 
 
