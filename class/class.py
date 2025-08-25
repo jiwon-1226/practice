@@ -21,8 +21,7 @@ class Account:
         if num2 <= 0:
             print("0보다 큰 수를 입력해주세요")
 
-        else num2 > balance
-
+        else num2 > balance:
             print(f"{self.num2}원이 출금되었습니다\n잔액이 {self.balance - self.num2}원 남았습니다.")
 
 account1 = Account("김지원", 465500)

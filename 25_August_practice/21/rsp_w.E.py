@@ -8,8 +8,8 @@ from pictures import REPAIR, ELEVATOR
 
 #괴담 입장 방법
 def enter_gs():
-    print("==========================")
-    print("         loding...        ", end="")
+    print("======================================")
+    print("                loding...             ", end="")
     time.sleep(3)
     e = random.choice(HOW_ENTER)
     print(end="\r")

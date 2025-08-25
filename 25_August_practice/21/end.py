@@ -6,7 +6,7 @@ import time
 from model import GUIDELINE
 
 
-def end_w3():
+def end_wr3():
     time.sleep(2)
     print()
     print(GUIDELINE[33])
@@ -63,6 +63,48 @@ def end_w3():
         print("\033[91m [거울을 보지 마세요]\033[0m")
         time.sleep(3)
         print("\n")
+    elif choice == "2":
+        print("")
+
+def end_ww3():
+    time.sleep(3)
+    print("\033[1m\033[3m\033[37m쾅!!")
+    time.sleep(2)
+    print("쾅! 쾅!\033[0m")
+    time.sleep(2)
+    print("＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "|                                       |\n",
+          "＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿"
+          )
+
+end_ww3()
+
+
+def end_w99():
+    print("\033[40m                                                                  \033[0m\n" * 40,
+          "\033[40m                                                                  \033[0m", end="")
+
+    time.sleep(2)
+
+    print(end="\r")
+    print("\033[40m ㅁㅁㅁㅁㅁ!! ㅁㅁㅁㅁㅁ!! ㅁㅁ..ㅁㅁ..                                \033[0m")
+
+    time.sleep(2)
+
+    print("                                                                  \n" * 40)
+
+    time.sleep(3)
+
+    print(GUIDELINE[99])
+
 
 
 def do_not_direction():

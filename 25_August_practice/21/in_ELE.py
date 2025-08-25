@@ -5,7 +5,7 @@ import time
 
 from model import TITle, VOICE, GUIDELINE, ALLBUTTON, ffast_p_win, fslow_p_lose, sfast_p_win, sslow_p_lose, ANSWER, gA
 from pictures import MIRROR, ELEVATOR
-from end import end_w3
+from end import end_wr3, end_w99, end_ww3
 
 
 
@@ -155,8 +155,7 @@ def my_turn(top_floor):
 def other_turn(top_floor):
     print("\n")
     print(GUIDELINE[13])
-    print("\n")
-    time.sleep(5)
+    time.sleep(4)
     print(f"{top_floor}층에 도달할 때까지 한 번도 이기지 못한 당신을 거울 속에 당신이 활짝 웃으며 바라본다.")
     time.sleep(2)
     print(MIRROR("", "좋음"))
@@ -210,6 +209,9 @@ def other_turn(top_floor):
             win_count += 1
             print("드디어 당신이 이겼습니다")
             MIRROR("", "매우나쁨")
+            time.sleep(2)
+            end_ww3()
+            return
 
         elif result == -1:
             lose_count += 1
@@ -246,15 +248,23 @@ def other_turn(top_floor):
 
 
             if lose_count == 3:
-                print("")
+                print("\033[3m\033[37m킥", end="")
+                time.sleep(2)
+                print(end="\r")
+                print("키킥, ", end="")
+                time.sleep(2)
+                print("키키킥\033[0m", end="")
+                time.sleep(2)
+                print(end="\r")
+                end_w99()
+                return
+
 
 
         else:
             win_count += 0
         print(f"이김 : {win_count}, 짐 : {lose_count}")
         game_count += 1
-
-other_turn(7)
 
 
 
@@ -379,7 +389,7 @@ def GLASS():
         if to_do == "1":
             print("\n당신은 답변을 마음에 들어하며 유리창에서 멀어진다.")
             time.sleep(2)
-            end_w3()
+            end_wr3()
             break
         elif to_do == "2":
             print("\n당신은 당신의 질문에 대한 답변이 마음에 들지 않는다.\n")
@@ -393,7 +403,7 @@ def GLASS():
             print("아쉽지만 질문을 할 수 있는 기회는 단 한번이기에 \n 더 이상 질문할 수 없다:)")
             time.sleep(2)
             print("당신은 체념하며 유리창에서 멀어진다.")
-            end_w3()
+            end_wr3()
             break
 
         else:
@@ -402,7 +412,7 @@ def GLASS():
             if angry == "3":
                 time.sleep(2)
                 print("당신은 체념하며 유리창에서 멀어진다.")
-                end_w3()
+                end_wr3()
                 break
             elif angry == "1":
                 time.sleep(2)
