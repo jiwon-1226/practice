@@ -4,7 +4,7 @@ import time
 
 
 from model import GUIDELINE, VOICE, BUTTON, PRESS_BUTTON, ANSWER
-from pictures import MIRROR
+from pictures import MIRROR, ELEVATOR
 
 
 def Reply_Q(space1, space2, Q):
@@ -165,19 +165,19 @@ def GLASS(top_floor):
                 time.sleep(2)
                 print("이름님을 믿니이이??")
                 time.sleep(3)
-                print(" ...None")
+                print(" ...")
                 time.sleep(0.5)
                 print("\n\n이름님을 믿니?")
                 time.sleep(2)
-                print(" ..None")
+                print(" ..")
                 time.sleep(0.3)
                 print("\n이름님을 믿니??\n")
                 time.sleep(1)
-                print(" None\n이름님을 믿니???\n")
+                print(" .\n이름님을 믿니???\n")
                 time.sleep(2)
-                print(" None\n이름님을 믿니이???\n")
+                print(" .\n이름님을 믿니이???\n")
                 time.sleep(2)
-                print(" None\n이름님을 믿니이이이?????\n\n")
+                print("  \n이름님을 믿니이이이?????\n\n")
                 time.sleep(0.5)
                 print(".")
                 time.sleep(0.5)
@@ -187,6 +187,45 @@ def GLASS(top_floor):
                 time.sleep(3)
                 print("\n이름님을 믿냐구우우우우우우??????????\n\033[0m")
                 time.sleep(3)
+                print("\n\033[92m\033[1m이런 미친 사이비였군.\033[0m")
+                time.sleep(4)
+                print("\033[92m그럼 필요없지.\033[0m")
+                time.sleep(2)
+                print("\n\n당신의 몸이 멋대로 움직이며 엘리베이터에 탑승한다.\n\n")
+                time.sleep(2)
+                VOICE("go_down", top_floor)
+
+                VOICE("open", 1)
+                print("엘리베이터가 \033[92m\033[40m 1층 \033[0m에 도착했다.")
+                print("당신의 몸이 멋대로 엘리베이터에서 나간다.")
+
+                print("\n\033[92m[문이 닫힙니다.]\033[0m")
+                time.sleep(1)
+                ELEVATOR("open_out", 1)
+                time.sleep(1)
+                ELEVATOR("opening_out", 1)
+                time.sleep(1)
+                ELEVATOR("close_repair", 1)
+                time.sleep(4)
+
+                print("\n\n\033[90m\033[3m꺼져.\033[0m", end="")
+                time.sleep(2)
+                print(end="\r")
+                print("\033[90m\033[3m다신 오지마. 더러운 사이비.\033[0m", end="")
+                time.sleep(2)
+                print(end="\r")
+                print(" \n킥킥 이름님을 믿니??", end="")
+                time.sleep(2)
+                print(end="\r")
+                print("어라? 내가 뭐라고 말했던거지?\n")
+                time.sleep(2)
+                print("\033[1mQterw-D-718", end="")
+                time.sleep(2)
+                print("\033[91m [거울을 보지 마세요]\033[0m")
+                time.sleep(3)
+                print("\n")
+
+
 
             else:
                 time.sleep(2)
@@ -196,9 +235,8 @@ def GLASS(top_floor):
                 print("당신은 텍스트의 지시사항을 따르지 않았다.")
                 end_w99()
                 return
-
-
     return
+
 
 
 def end_wr3(top_floor):
@@ -329,13 +367,16 @@ def end_ww3(top_floor, lose_count):
     time.sleep(2)
 
     VOICE("go_down", top_floor)
+    time.sleep(2)
+    print(f"\033[92m\033[40m[{top_floor}F]\033[0m")
+    time.sleep(2)
     VOICE("open", top_floor)
 
     time.sleep(2)
     print(GUIDELINE[3])
 
     print("\n", GUIDELINE[32])
-    print(f"당신은 {top_floor}에 내려서 유리창을 찾는다.")
+    print(f"당신은 \033[92m\033[40m {top_floor}층 \033[0m에 내려서 유리창을 찾는다.")
     time.sleep(1)
     print("\n ......")
     time.sleep(3)
@@ -353,7 +394,7 @@ def end_ww3(top_floor, lose_count):
     print(GUIDELINE[11])
     time.sleep(5)
 
-    print(f"당신은 {top_floor}층에 멈춰있는 엘리베이터에 탄다.")
+    print(f"당신은 \033[92m\033[40m {top_floor}층 \033[0m에 멈춰있는 엘리베이터에 탄다.")
     time.sleep(2)
     print(GUIDELINE[112])
     time.sleep(7)
@@ -397,11 +438,11 @@ def end_ww3(top_floor, lose_count):
     print("\n")
     time.sleep(2)
 
-    print("당신은 열림버튼에서 손을 뗀다")
+    print("당신은 열림버튼에서 손을 뗀다.")
     time.sleep(2)
     print("....")
     time.sleep(2)
-    print("당신은 망설인다")
+    print("당신은 망설인다.")
     input("1. 엘리베이터를 탄다.\n2. 계단을 찾는다.\n선택:")
 
     return
@@ -410,6 +451,17 @@ def end_ww3(top_floor, lose_count):
 
 
 def end_w99():
+    time.sleep(2)
+    print("'거울 속 존재'가 웃는다.")
+    time.sleep(1)
+    print("당신은 이제 집으로 돌아 갈 수 없다.")
+    time.sleep(2)
+    print("\n행운을 빈다")
+    time.sleep(2)
+
+    print("\n당신은 무심코 엘리베이터의 거울을 쳐다본다.")
+    time.sleep(2)
+
     print("\033[40m                                                                  \033[0m\n" * 40,
           "\033[40m                                                                  \033[0m", end="")
 
@@ -422,34 +474,11 @@ def end_w99():
 
     print("                                                                  \n" * 40)
 
-    time.sleep(3)
-
-    print(GUIDELINE[99])
-
-
-
-def do_not_direction():
-    time.sleep(2)
-    print("거울 속 존재가 웃는다.")
-    print("당신은 이제 집으로 돌아 갈 수 없다.")
-    print("행운을 빈다")
-
-    print("\n당신은 무심코 엘리베이터의 거울을 쳐다본다.")
-    time.sleep(2)
-
-    print("|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n"
-          "|\033[40m                                    \033[0m|\n")
-
     time.sleep(2)
 
     print("열림버튼을 누르고 엘리베이터 안을 빠져 나가 계단으로 내려간다.")
+    time.sleep(2)
+    print(".....")
     time.sleep(2)
     print("지시사항을 99번까지 내린다.")
     time.sleep(2)
@@ -462,5 +491,3 @@ def do_not_direction():
     print("\033[91m [거울을 보지 마세요]\033[0m")
     time.sleep(3)
     print("\n")
-    return
-

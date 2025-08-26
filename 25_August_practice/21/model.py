@@ -54,10 +54,10 @@ def ALLBUTTON(top_floor):
 
 def VOICE(instruction, top_floor):
     if instruction == "go_up":
-        print("[올라갑니다]\n띵.\n")
+        print("\033[92m[올라갑니다]\033[0m\n띵.\n")
         return
     elif instruction == "close":
-        print("\n[문이 닫힙니다.]")
+        print("\n\033[92m[문이 닫힙니다.]\033[0m")
         time.sleep(1)
         ELEVATOR("open_in", 1)
         time.sleep(1)
@@ -68,7 +68,7 @@ def VOICE(instruction, top_floor):
         print("\n덜컹.")
         return
     elif instruction == "open":
-        print(f"\n[{top_floor}층입니다. 문이 열립니다.]")
+        print(f"\n\033[92m[{top_floor}층입니다. 문이 열립니다.]\0330m")
         time.sleep(1)
         ELEVATOR("close_in", top_floor)
         time.sleep(1)
@@ -79,11 +79,11 @@ def VOICE(instruction, top_floor):
         print("\n덜컹.")
         return
     elif instruction == "go_down":
-        print("[내려갑니다]\n")
+        print("\033[92m[내려갑니다]\n\033[0m")
+        print(f"\n\033[92m\033[40m[{top_floor}F]\033[0m\n")
         time.sleep(2)
         print("....")
         time.sleep(2)
-        print(f"\n\033[92m\033[40m[{top_floor}F]\033[0m")
         return
 
 
@@ -91,7 +91,7 @@ def VOICE(instruction, top_floor):
 
 
 GUIDELINE = {
-    "f": "『엘리베이터에 탑승한 후, 버튼을 누르지 말고 기다려라.\n만일 엘리베이터가 혼자 움직이기 시작했다면 성공적으로 괴담에 진입한 것이다.』",
+    "f": "\033[30m\033[107m『엘리베이터에 탑승한 후, 버튼을 누르지 말고 기다려라.\n만일 엘리베이터가 혼자 움직이기 시작했다면 성공적으로 괴담에 진입한 것이다.』\033[0m",
     1: "『1. 이제부터 최고층에 도착할 때까지 거울 속의 나와 가위바위보를 한다.\n한 번이라도 이긴 경우: 3번으로\n한 번도 이기지 못한 경우: 13번으로』",
     "주의점": "『※주의점: 이 의식을 치른 대다수의 진술에 따르면,\n'거울 속의 나'는 자기 자신과의 가위바위보에서 부자연스러울 정도로 승률이 높다.』",
     3: "『3. 축하한다. 당신은 의식에 성공했다!\n최고층에서 내려서 가까운 유리창을 찾아라.\n유리창이 없다면 7번으로.』\n\n",

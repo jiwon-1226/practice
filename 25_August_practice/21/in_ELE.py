@@ -1,7 +1,6 @@
 import random
 import os
 import time
-from pdb import line_prefix
 
 from model import TITle, VOICE, GUIDELINE, ALLBUTTON, ffast_p_win, fslow_p_lose, sfast_p_win, sslow_p_lose,  gA
 from pictures import MIRROR, ELEVATOR
@@ -79,10 +78,6 @@ def E_choice(p_choice, input_time, fast_p_win, slow_p_lose):
         MIRROR(p_choice, "")
         print("Tie, Draw")
         return 0
-
-
-
-
 
 
 
