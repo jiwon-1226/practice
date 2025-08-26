@@ -92,9 +92,9 @@ def ELEVATOR(instrution, floor):
               "=====================================================\n")
     elif instrution == "opening_out":
         print(" ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿\n"
-              "|                                                   |"
+              "|                                                   |\n"
               f"|      \033[92m\033[40m  [{floor}F]  \033[0m                        |\n"
-              "|                                                   |"
+              "|                                                   |\n"
               "|      _＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿_       |\n"
               "|      |           |            |           |       |\n"
               "|      |           |            |           |       |\n"
@@ -181,12 +181,12 @@ def ELEVATOR(instrution, floor):
               "|  |   🤚\uFE0E      |    |  |\n"
               "========================\n")
 
-mirror_pic = ["＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿",
-              "|                 |  | |",
-              "|      (' - ')    |  | |",
-              "|      __| |__    |  | |",
-              "|     /     O |   |  | |",
-              "|＿＿_/＿＿＿＿\\|＿＿＿＿_|"
+mirror_pic = ["＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿",
+              "|                    |  | |",
+              "|      (' - ')       |  | |",
+              "|      __| |__       |  | |",
+              "|     /     O |      |  | |",
+              "|＿＿_/＿＿＿＿\\|＿＿＿＿＿＿＿|"
               ]
 
 face_pic = ["|      (' v ')       |  | |",
@@ -198,27 +198,52 @@ rsp_pic = ["|     /     ✊\uFE0E|      |  | |",
            "|     /     ✋\uFE0E|      |  | |"]
 
 
-def MIRROR(choice, face):
-    print(mirror_pic[0])
-    print(mirror_pic[1])
-    #거울 속 표정
-    if face == "좋음":
-        print(face_pic[0])
-    elif face == "매우좋음":
-        print(face_pic[1])
-    elif face == "나쁨":
-        print(face_pic[2])
-    elif face == "매우나쁨":
-        print(face_pic[3])
+def MIRROR(choice, face, light=1):
+    if light == 0:
+        print("\033[40m", mirror_pic[0], "\033[0m")
+        print("\033[40m", mirror_pic[1], "\033[0m")
+        #거울 속 표정
+        if face == "좋음":
+            print("\033[40m", face_pic[0], "\033[0m")
+        elif face == "매우좋음":
+            print("\033[40m", face_pic[1], "\033[0m")
+        elif face == "나쁨":
+            print("\033[40m", face_pic[2], "\033[0m")
+        elif face == "매우나쁨":
+            print("\033[40m", face_pic[3], "\033[0m")
+        else:
+            print("\033[40m", mirror_pic[2], "\033[0m")
+        print("\033[40m", mirror_pic[3], "\033[0m")
+        #거울의 손동작
+        if choice == "1":
+            print("\033[40m", rsp_pic[0], "\033[0m")
+        elif choice == "3":
+            print("\033[40m", rsp_pic[1], "\033[0m")
+        else:
+            print("\033[40m", mirror_pic[4], "\033[0m")
+        print("\033[40m", mirror_pic[5], "\033[0m")
     else:
-        print(mirror_pic[2])
-    print(mirror_pic[3])
-    #거울의 손동작
-    if choice == "1":
-        print(rsp_pic[0])
-    elif choice == "3":
-        print(rsp_pic[1])
-    else:
-        print(mirror_pic[4])
-    print(mirror_pic[5])
+        print(mirror_pic[0])
+        print(mirror_pic[1])
+        # 거울 속 표정
+        if face == "좋음":
+            print(face_pic[0])
+        elif face == "매우좋음":
+            print(face_pic[1])
+        elif face == "나쁨":
+            print(face_pic[2])
+        elif face == "매우나쁨":
+            print(face_pic[3])
+        else:
+            print(mirror_pic[2])
+        print(mirror_pic[3])
+        # 거울의 손동작
+        if choice == "1":
+            print(rsp_pic[0])
+        elif choice == "3":
+            print(rsp_pic[1])
+        else:
+            print(mirror_pic[4])
+        print(mirror_pic[5])
+
 

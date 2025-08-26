@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="79fd62b2-b7e9-421a-94e1-7d0d025d8df9" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_August_practice/21/end.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/end.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_August_practice/21/in_ELE.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/in_ELE.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_August_practice/21/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_August_practice/21/pictures.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/pictures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_August_practice/21/rsp_w.E.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/rsp_w.E.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.end.executor": "Run",
+    "Python.in_ELE.executor": "Run",
+    "Python.rsp_w.E.executor": "Run",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
