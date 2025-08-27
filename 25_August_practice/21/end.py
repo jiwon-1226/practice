@@ -1,9 +1,9 @@
 import random
 import os
 import time
+from logging import logProcesses
 
-
-from model import GUIDELINE, VOICE, BUTTON, PRESS_BUTTON, ANSWER
+from model import GUIDELINE, VOICE, BUTTON, PRESS_BUTTON, ANSWER, ELE_or_STR, go_to_stair
 from pictures import MIRROR, ELEVATOR
 
 
@@ -136,7 +136,7 @@ def GLASS(top_floor):
             print("\033[3m\033[91m그런데 어쩌라고?", end="")
             time.sleep(2)
             print(end="\r")
-            print("답변이 마음에 안들면 질문을 잘했어야지\033[0m", end="")
+            print("답변이 마음에 안들면 질문을 잘했어야지.\033[0m", end="")
             time.sleep(2)
             print(end="\r")
             print("아쉽지만 질문을 할 수 있는 기회는 단 한번이기에 \n 더 이상 질문할 수 없다:)")
@@ -225,17 +225,20 @@ def GLASS(top_floor):
                 time.sleep(3)
                 print("\n")
 
-
-
             else:
                 time.sleep(2)
                 print("쾅!!")
                 time.sleep(2)
-                print("\033[3m쨍\0330m\033[1m\033[37m그\0330m\033[1m\033[4m랑\033[0m")
-                print("당신은 텍스트의 지시사항을 따르지 않았다.")
+                print("\033[3m쨍\033[0m\033[1m\033[37m그\033[0m\033[1m\033[4m랑\033[0m")
+                time.sleep(2)
+                print("\n\n유리창이 당신이 던진 돌에 의해 깨진다.")
+                time.sleep(2)
+                print("당신은 지시사항을 따르지 않았다.")
                 end_w99()
                 return
     return
+
+
 
 
 
@@ -250,55 +253,9 @@ def end_wr3(top_floor):
     time.sleep(5)
     print("\n다행히 간단한 지시이다.\n")
     time.sleep(1)
-    choice = input("1. 계단을 찾아서 계단으로 내려간다. \n2. 엘리베이터를 탄다.\n선택 :")
-    if choice == "1":
-        print("당신은 비상구 표시가 빛나는 곳으로 간다.")
-        time.sleep(1)
-        print("\n.....\n")
-        time.sleep(3)
-        print("당신은 계단을 찾았다.")
-        time.sleep(1)
-        print("계단으로 1층까지 내려간다.\n")
-        time.sleep(2)
-        print("\n터벅터벅\n")
-        time.sleep(2)
-        print("\n터벅터벅\n")
-        time.sleep(2)
-        print("\n터벅터벅\n")
-        time.sleep(2)
-        print("\n터벅터벅\n")
-        time.sleep(2)
-        print("\n터벅터벅\n")
-        print("1층에 도착했다.\n")
-        time.sleep(3)
-        print("당신은 무심코 엘리베이터 쪽을 쳐다본다.\n")
-        time.sleep(2)
-        print("   \033[92m\033[40m  [100F]  \033[0m", end="")
-        time.sleep(3)
+    ELE_or_STR(top_floor)
 
-        for i in range(100, 3, -1):
-            print(end="\r")
-            print(f"   \033[92m\033[40m  [{i}F]  \033[0m", end="")
-            time.sleep(0.05)
 
-        print(end="\r")
-        print("\n\n당신은 당장 그 건물을 도망쳐 니온다.\n\n")
-        time.sleep(2)
-        print("\033[90m\033[3m킥킥...\033[0m", end="")
-        time.sleep(2)
-        print(end="\r")
-        print("\033[90m\033[3m깔깔깔깔\033[0m", end="")
-        time.sleep(2)
-        print(end="\r")
-        print(" \n어라? 방금 무슨 소리 안들렸나?\n")
-        time.sleep(2)
-        print("\033[1mQterw-D-718", end="")
-        time.sleep(2)
-        print("\033[91m [거울을 보지 마세요]\033[0m")
-        time.sleep(3)
-        print("\n")
-    elif choice == "2":
-        print("")
 
 def end_ww3(top_floor, lose_count):
     time.sleep(3)
@@ -411,7 +368,7 @@ def end_ww3(top_floor, lose_count):
     time.sleep(2)
     print("\n거울안의 귀신이 다시 거울에 머리를 쳐박는다.\n")
     time.sleep(2)
-    for i in range(lose_count*10):
+    for i in range((lose_count+1)*10):
         print("\033[1m\033[3m\033[37m나가고싶어" *7, "\n")
         time.sleep(1)
     print("\033[1m나가고싶어!!!!\033[0m")
@@ -429,6 +386,7 @@ def end_ww3(top_floor, lose_count):
     print("\n\033[92m삐익- 삐익- 삐익-\033[0m\n")
     time.sleep(2)
     print(GUIDELINE[113])
+    print()
     time.sleep(2)
 
     PRESS_BUTTON("<>")
@@ -443,8 +401,8 @@ def end_ww3(top_floor, lose_count):
     print("....")
     time.sleep(2)
     print("당신은 망설인다.")
-    input("1. 엘리베이터를 탄다.\n2. 계단을 찾는다.\n선택:")
-
+    time.sleep(2)
+    ELE_or_STR(top_floor)
     return
 
 
@@ -491,3 +449,4 @@ def end_w99():
     print("\033[91m [거울을 보지 마세요]\033[0m")
     time.sleep(3)
     print("\n")
+    return

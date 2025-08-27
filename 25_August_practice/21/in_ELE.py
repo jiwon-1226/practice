@@ -136,7 +136,7 @@ def my_turn(top_floor):
                 time.sleep(2)
                 print(end="\r")
                 print("당신은 기뻐하며 3번 지시문을 마저 읽는다.")
-                print("\n", GUIDELINE[3-2])
+                print("\n",GUIDELINE[32])
                 print(f"당신은 {top_floor}에 내려서 유리창을 찾는다.")
                 time.sleep(1)
                 print("\n ......")
@@ -186,7 +186,7 @@ def other_turn(top_floor):
     game_count = 1
 
     while True:
-        print("    \033[92m\033[40m  [1930819F]  \033[0m")
+        print("      \033[92m\033[40m  [1930819F]  \033[0m")
         MIRROR("", "웃음")
         print(f"{game_count}번째")
         time.sleep(2)

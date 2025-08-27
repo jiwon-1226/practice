@@ -5,12 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79fd62b2-b7e9-421a-94e1-7d0d025d8df9" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/25_August_practice/21/end.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/end.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/25_August_practice/21/in_ELE.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/in_ELE.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/25_August_practice/21/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/25_August_practice/21/origin_story" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/origin_story" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/25_August_practice/21/rsp_w.E.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/rsp_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_August_practice/21/pictures.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/pictures.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/25_August_practice/21/rsp_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/rsp_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,21 +21,46 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="31ogqTa7AxriF8dDrijwBzFZU5p" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.end.executor": "Run",
-    "Python.in_ELE.executor": "Run",
-    "Python.pictures.executor": "Run",
-    "Python.rsp_main.executor": "Run",
-    "Python.rsp_w.E.executor": "Run",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "git-widget-placeholder": "main"
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.end.executor&quot;: &quot;Run&quot;,
+    &quot;Python.in_ELE.executor&quot;: &quot;Run&quot;,
+    &quot;Python.model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pictures.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rsp_main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.rsp_w.E.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;
   }
-}]]></component>
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-53e2683a6804-9cdd278e9d02-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.26094.141" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="79fd62b2-b7e9-421a-94e1-7d0d025d8df9" name="변경" comment="" />
+      <created>1756196031170</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1756196031170</updated>
+    </task>
     <servers />
   </component>
 </project>

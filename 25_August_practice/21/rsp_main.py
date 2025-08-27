@@ -39,7 +39,7 @@ def enter_gs():
         BUTTON("^")
         time.sleep(1)
         print("\n")
-        VOICE("close", top_floor)
+        VOICE("close", 1)
 
         print("\n엘리베이터에 탑승한 당신은 아무버튼도 누르지 않았지만 엘리베이터가 움직인다.")
         time.sleep(1)
@@ -77,7 +77,7 @@ def enter_gs():
         print("이상하게 느낌이 좋지 않았다")
         time.sleep(1)
         print("..불안한 마음을 달래기 위해 휴대폰을 연신 들여다 본다.")
-        VOICE("close", top_floor)
+        VOICE("close", 1)
 
         time.sleep(2)
         print("당신이 탑승한 엘리베이터가 움직이기 시작한다.\n")
@@ -132,7 +132,7 @@ def enter_gs():
         time.sleep(2)
         print("당신은 휴대폰을 보며 엘리베이터에 탑승해 한쪽 벽면에 기댄다.")
         time.sleep(2)
-        VOICE("close", top_floor)
+        VOICE("close", 1)
 
         show_title(top_floor)
 
