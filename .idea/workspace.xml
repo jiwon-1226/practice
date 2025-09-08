@@ -5,18 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="79fd62b2-b7e9-421a-94e1-7d0d025d8df9" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/26_September_practice/8.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/25_August_practice/21/end.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/end.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/25_August_practice/21/in_ELE.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/in_ELE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/25_August_practice/21/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/25_August_practice/21/pictures.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/pictures.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/25_August_practice/21/rsp_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/25_August_practice/21/rsp_main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

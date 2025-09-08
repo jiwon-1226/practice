@@ -1,7 +1,6 @@
 import random
 import os
 import time
-from logging import logProcesses
 
 from model import GUIDELINE, VOICE, BUTTON, PRESS_BUTTON, ANSWER, ELE_or_STR, go_to_stair
 from pictures import MIRROR, ELEVATOR
